@@ -20,7 +20,7 @@ class User(Base):
     phone = Column(String(20), nullable=True)  # Телефон (если пользователь его предоставит)
     is_admin = Column(Boolean, default=False)  # Админ ли?
     is_active = Column(Boolean, default=True)  # Активен ли аккаунт?
-    registered_at = Column(DateTime, default=datetime.now(tz=UTC))  # Дата регистрации
+    registered_at = Column(DateTime(timezone=True), default=datetime.now(tz=UTC))  # Дата регистрации
 
     def __repr__(self):
         return f"<User(id={self.telegram_id}, username='{self.username}')>"
