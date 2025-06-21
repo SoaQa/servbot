@@ -32,7 +32,7 @@ engine = create_engine(
 )
 
 async_engine = create_async_engine(
-    os.getenv("SERVBOT_ASYNC_DATABASE_URL", "sqlite+aiosqlite:///servbot.db"),
+    os.getenv("SERVBOT_DATABASE_URL", "sqlite+aiosqlite:///servbot.db"),
     echo=True
 )
 
