@@ -2,5 +2,3 @@ pyTelegramBotAPI==4.26.0
 aiohttp==3.11.18
 SQLAlchemy==2.0.41
 alembic==1.16.2
-aiosqlite==0.21.0
-
