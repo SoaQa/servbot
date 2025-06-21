@@ -1,4 +1,4 @@
 -r base-requirements.txt
 
 psycopg-binary==2.9.10
-aiopg==1.4.0
+asyncpg==0.30.0
