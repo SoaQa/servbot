@@ -1,4 +1,6 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime
+import os
+
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime, UTC
 
@@ -19,3 +21,8 @@ class User(Base):
 
     def __repr__(self):
         return f"<User(id={self.telegram_id}, username='{self.username}')>"
+
+
+engine = create_engine(
+    os.getenv("SERVBOT_DATABASE_URL", "sqlite:///servbot.db"),
+    echo=True)
