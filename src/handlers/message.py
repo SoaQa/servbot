@@ -1,4 +1,4 @@
-from main import bot
+from src.common import bot
 
 
 @bot.message_handler(func=lambda message: True)
