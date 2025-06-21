@@ -25,4 +25,5 @@ class User(Base):
 
 engine = create_engine(
     os.getenv("SERVBOT_DATABASE_URL", "sqlite:///servbot.db"),
-    echo=True)
+    echo=True
+)
