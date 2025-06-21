@@ -1,8 +1,11 @@
 import os
 
 from sqlalchemy import Column, Integer, String, Boolean, DateTime, create_engine
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime, UTC
+
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
@@ -27,3 +30,10 @@ engine = create_engine(
     os.getenv("SERVBOT_DATABASE_URL", "sqlite:///servbot.db"),
     echo=True
 )
+
+async_engine = create_async_engine(
+    os.getenv("SERVBOT_DATABASE_URL", "sqlite+aiosqlite:///servbot.db"),
+    echo=True
+)
+
+AsyncSessionLocal = sessionmaker(async_engine, class_=AsyncSession, expire_on_commit=False) # NoQa
