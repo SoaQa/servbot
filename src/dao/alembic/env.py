@@ -6,9 +6,13 @@ from sqlalchemy import engine_from_config, pool
 
 from src.dao.models import Base
 
+
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+configuration = config.get_section(config.config_ini_section, {})
+config.set_main_option("sqlalchemy.url", os.environ["SERVBOT_ALEMBIC_DATABASE_URL"])
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
@@ -25,10 +29,6 @@ target_metadata = Base.metadata
 # can be acquired:
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
-
-configuration = config.get_section(config.config_ini_section, {})
-
-configuration["sqlalchemy.url"] = os.environ["SERVBOT_ALEMBIC_DATABASE_URL"]
 
 
 def run_migrations_offline() -> None:

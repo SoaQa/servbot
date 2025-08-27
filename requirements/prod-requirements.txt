@@ -1,4 +1,4 @@
 -r base-requirements.txt
 
-psycopg[binary]
 asyncpg
+psycopg2-binary
