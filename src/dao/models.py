@@ -27,7 +27,7 @@ class User(Base):
 
 
 async_engine = create_async_engine(
-    os.environ.get("SERVBOT_DATABASE_URL", "sqlite+aiosqlite:///servbot.db"),
+    os.environ["SERVBOT_DATABASE_URL"],
     echo=True
 )
 

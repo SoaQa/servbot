@@ -43,7 +43,7 @@ def run_migrations_offline() -> None:
     script output.
 
     """
-    url = os.getenv("SERVBOT_DATABASE_URL", "sqlite:///servbot.db")
+    url = os.environ["SERVBOT_DATABASE_URL"]
     context.configure(
         url=url,
         target_metadata=target_metadata,

@@ -1,3 +1,6 @@
 -r base-requirements.txt
 
 aiosqlite==0.21.0
+pytest==8.3.4
+pytest-asyncio==0.24.0
+pytest-mock==3.14.0
