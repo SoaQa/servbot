@@ -174,3 +174,4 @@ cython_debug/
 .pypirc
 servbot.db
 database.env
+bot.env
