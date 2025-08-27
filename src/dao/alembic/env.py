@@ -28,13 +28,7 @@ target_metadata = Base.metadata
 
 configuration = config.get_section(config.config_ini_section, {})
 
-url = os.environ["SERVBOT_DATABASE_URL"]
-schema, uri = url.split("://")
-
-if len(schema_parts := schema.split("+")) == 2:
-    url = "".join([schema_parts[0], ":", uri])
-
-configuration["sqlalchemy.url"] = url
+configuration["sqlalchemy.url"] = os.environ["SERVBOT_ALEMBIC_DATABASE_URL"]
 
 
 def run_migrations_offline() -> None:

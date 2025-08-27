@@ -4,7 +4,8 @@ FROM python:3.12-slim
 # Устанавливаем зависимости
 WORKDIR /app
 
-COPY prod-requirements.txt .
+COPY requirements/base-requirements.txt .
+COPY requirements/prod-requirements.txt .
 RUN pip install --no-cache-dir -r prod-requirements.txt
 
 # Копируем код
