@@ -8,3 +8,10 @@ services:
       - database.env
     ports:
       - "127.0.0.1:5432:5432"
+  servbot:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: servbot:latest
+    env_file:
+      - bot.env
