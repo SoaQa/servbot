@@ -1,6 +1,6 @@
 import os
 
-from sqlalchemy import Column, String, Boolean, DateTime, create_engine, BigInteger
+from sqlalchemy import Column, String, Boolean, DateTime, BigInteger
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from datetime import datetime, UTC

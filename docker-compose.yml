@@ -6,8 +6,6 @@ services:
       - /var/lib/postgresql/data:/var/lib/postgresql/data
     env_file:
       - database.env
-    ports:
-      - "5432:5432"
     healthcheck:
       test: [ "CMD-SHELL", "pg_isready -U $${POSTGRES_USER}" ]
       interval: 5s
@@ -16,13 +14,20 @@ services:
 
   servbot:
     container_name: servbot
-    build:
-      dockerfile: Dockerfile
-      context: .
-    image: servbot:latest
+    image: ghcr.io/soaqa/servbot:latest
     env_file:
       - bot.env
     depends_on:
       database:
         condition: service_healthy
     entrypoint: "./entrypoint.sh"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 300 --label-enable --cleanup
+    restart: unless-stopped
