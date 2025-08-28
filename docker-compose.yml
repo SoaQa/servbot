@@ -14,10 +14,7 @@ services:
 
   servbot:
     container_name: servbot
-    build:
-      dockerfile: Dockerfile
-      context: .
-    image: servbot:latest
+    image: ghcr.io/soaqa/servbot:latest
     env_file:
       - bot.env
     depends_on:
