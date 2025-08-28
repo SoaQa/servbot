@@ -39,3 +39,6 @@ jobs:
 
       - name: Run tests
         run: pytest -vv
+
+      - name: Flake8
+        run: flake8 .
